@@ -1,69 +1,122 @@
-# Welcome to your Lovable project
+# 🌍 World Clock Zone  
 
-## Project info
+Welcome to **World Clock Zone**, a web application that provides real-time world clock information using modern web technologies.  
 
-**URL**: https://lovable.dev/projects/695aa81e-76da-4112-b938-17536701d7b8
+## 🚀 Project Overview  
 
-## How can I edit this code?
+World Clock Zone allows users to view and compare time zones from different locations worldwide. The app fetches real-time data from APIs and displays it in an interactive UI.  
 
-There are several ways of editing your application.
+🔗 **Live URL**: [World Clock Zone](https://world-clockzone.vercel.app/)  
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/695aa81e-76da-4112-b938-17536701d7b8) and start prompting.
+## 🛠️ Tech Stack  
 
-Changes made via Lovable will be committed automatically to this repo.
+This project is built with the following technologies:  
 
-**Use your preferred IDE**
+- **Vite** – A fast build tool for modern web apps.  
+- **React** – JavaScript library for building interactive UIs.  
+- **TypeScript** – Type-safe JavaScript for better development experience.  
+- **shadcn-ui** – Customizable UI components.  
+- **Tailwind CSS** – Utility-first CSS framework for styling.  
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 📡 Data Source & APIs  
 
-Follow these steps:
+World Clock Zone fetches real-time time zone data using public APIs:  
+
+- **World Time API** ([http://worldtimeapi.org/](http://worldtimeapi.org/))  
+  - Provides accurate time zone data based on region/city.  
+  - Used for fetching the current time, UTC offset, and daylight saving time (DST) info.  
+
+- **IP Geolocation API** (optional)  
+  - If enabled, detects the user’s location and displays their local time zone automatically.  
+
+---
+
+## 🎨 Features  
+
+✅ **View Time Zones** – Check the current time for different locations worldwide.  
+✅ **Real-Time Updates** – Automatically updates the displayed time every second.  
+✅ **Search & Filter** – Easily find and select different time zones.  
+✅ **Daylight Saving Time (DST) Support** – Shows if a location follows DST.  
+✅ **Responsive Design** – Works seamlessly on desktops, tablets, and mobile devices.  
+
+---
+
+## 🖥️ Local Development  
+
+If you want to run the project locally, follow these steps:  
+
+### Prerequisites  
+
+Ensure you have **Node.js** and **npm** installed. You can install Node.js using [nvm](https://github.com/nvm-sh/nvm#installing-and-updating).  
+
+### Steps  
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# 1️⃣ Clone the repository  
+git clone <YOUR_GIT_URL>  
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# 2️⃣ Navigate to the project directory  
+cd <YOUR_PROJECT_NAME>  
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 3️⃣ Install dependencies  
+npm install  
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+# 4️⃣ Start the development server  
+npm run dev  
+```  
 
-**Edit a file directly in GitHub**
+The app will be available at **http://localhost:5173** (default Vite port).  
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 🌍 Deployment  
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### **Using Lovable**  
 
-## What technologies are used for this project?
+- Visit [World Clock Zone](https://world-clockzone.vercel.app/).  
+- Click on **Share → Publish** to deploy.  
 
-This project is built with .
+### **Manual Deployment**  
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+If you prefer using a custom domain or external hosting, you can deploy the project using **Vercel**, **Netlify**, or **GitHub Pages**.  
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/695aa81e-76da-4112-b938-17536701d7b8) and click on Share -> Publish.
+## ✍️ How to Contribute  
 
-## I want to use a custom domain - is that possible?
+We welcome contributions! If you'd like to improve this project, follow these steps:  
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+1. **Fork the repository** on GitHub.  
+2. **Create a new branch** for your feature or bugfix.  
+3. **Make your changes** in your preferred IDE.  
+4. **Commit and push** your changes.  
+5. **Submit a pull request (PR)** for review.  
+
+---
+
+## ❓ FAQ  
+
+### Can I use a custom domain?  
+Currently, **Lovable does not support custom domains**. If you need a custom domain, we recommend deploying on **Netlify** or **Vercel**.  
+
+### How often is the time updated?  
+The clock updates every **second** to display accurate real-time information.  
+
+### Do I need an API key?  
+- **World Time API** does not require an API key.  
+- If **IP Geolocation API** is enabled, you might need an API key from a provider like **ipinfo.io** or **ipgeolocation.io**.  
+
+---
+
+## 📜 License  
+
+This project is **open-source** under the [MIT License](LICENSE). Feel free to modify and use it in your own projects!  
+
+---
+
+🚀 **Start exploring different time zones now!**  
+👉 [Visit World Clock Zone](https://world-clockzone.vercel.app/) 🌍⏰  

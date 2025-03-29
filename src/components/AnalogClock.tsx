@@ -1,13 +1,13 @@
+import React, { useEffect, useState } from "react";
+import Clock from "react-clock";
+import "react-clock/dist/Clock.css";
+import { getCurrentTimeForCity, City } from "../utils/timeZones";
 
-import React, { useEffect, useState } from 'react';
-import { getCurrentTimeForCity, City } from '../utils/timeZones';
-
-interface AnalogClockProps {
+interface ClockComponentProps {
   city: City;
-  isDark?: boolean;
 }
 
-const AnalogClock: React.FC<AnalogClockProps> = ({ city, isDark = false }) => {
+const ClockComponent: React.FC<ClockComponentProps> = ({ city }) => {
   const [time, setTime] = useState<Date>(getCurrentTimeForCity(city));
 
   useEffect(() => {
@@ -18,57 +18,27 @@ const AnalogClock: React.FC<AnalogClockProps> = ({ city, isDark = false }) => {
     return () => clearInterval(interval);
   }, [city]);
 
-  const seconds = time.getSeconds();
-  const minutes = time.getMinutes();
-  const hours = time.getHours() % 12;
-
-  // Calculate the rotation angles
-  const secondHandRotation = seconds * 6; // 6 degrees per second
-  const minuteHandRotation = minutes * 6 + seconds * 0.1; // 6 degrees per minute plus small adjustment for seconds
-  const hourHandRotation = hours * 30 + minutes * 0.5; // 30 degrees per hour plus small adjustment for minutes
-
-  const hourMarks = Array.from({ length: 12 }).map((_, i) => (
-    <div 
-      key={`hour-${i}`} 
-      className="hour-mark" 
-      style={{ transform: `rotate(${i * 30}deg) translateY(${isDark ? '8px' : '8px'})` }}
-    />
-  ));
-
-  const minuteMarks = Array.from({ length: 60 }).map((_, i) => {
-    // Skip positions where we already have hour marks
-    if (i % 5 === 0) return null;
-    
-    return (
-      <div 
-        key={`minute-${i}`} 
-        className="minute-mark" 
-        style={{ transform: `rotate(${i * 6}deg) translateY(${isDark ? '8px' : '8px'})` }}
-      />
-    );
-  });
+  const hours = time.getHours();
+  const isDayTime = hours >= 6 && hours < 18; // Daytime: 06:00 - 17:59
 
   return (
-    <div className={`analog-clock ${isDark ? 'dark-clock' : ''} w-full h-full`}>
-      <div className="clock-face">
-        {hourMarks}
-        {minuteMarks}
+    <div className="flex flex-col items-center">
+      <div
+        className={`p-4 rounded-full transition-all duration-300 shadow-md ${
+          isDayTime ? "bg-white text-black" : "bg-gray-900 text-white"
+        }`}
+      >
+        <Clock 
+          value={time} 
+          renderNumbers 
+          className={`transition-all duration-300 ${isDayTime ? "text-black" : "text-white"}`}
+        />
       </div>
-      <div className="center-dot"></div>
-      <div 
-        className="hand hour-hand" 
-        style={{ transform: `rotate(${hourHandRotation}deg)` }}
-      ></div>
-      <div 
-        className="hand minute-hand" 
-        style={{ transform: `rotate(${minuteHandRotation}deg)` }}
-      ></div>
-      <div 
-        className="hand second-hand" 
-        style={{ transform: `rotate(${secondHandRotation}deg)` }}
-      ></div>
+      {/* <p className={`mt-2 font-semibold ${isDayTime ? "text-black" : "text-white"}`}>
+        {city.name} - {hours.toString().padStart(2, "0")}:{time.getMinutes().toString().padStart(2, "0")}
+      </p> */}
     </div>
   );
 };
 
-export default AnalogClock;
+export default ClockComponent;

@@ -8,11 +8,6 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <img 
-              src="/lovable-uploads/48a80755-ae67-4471-ad65-fc28ab059fda.png" 
-              alt="WorldClock Logo" 
-              className="w-10 h-10"
-            />
             <h1 className="text-2xl font-bold text-white">WorldClock</h1>
           </div>
           <nav className="hidden md:flex items-center space-x-4">

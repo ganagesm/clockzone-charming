@@ -8,6 +8,7 @@ export interface City {
 
 // Define a list of major cities with their time zones
 export const CITIES: City[] = [
+  { name: "Delhi", timezone: "Asia/Kolkata", flag: "🇮🇳", offset: 5.5 },
   { name: "New York", timezone: "America/New_York", flag: "🇺🇸", offset: -5 },
   { name: "London", timezone: "Europe/London", flag: "🇬🇧", offset: 0 },
   { name: "Tokyo", timezone: "Asia/Tokyo", flag: "🇯🇵", offset: 9 },
@@ -19,7 +20,6 @@ export const CITIES: City[] = [
   { name: "Los Angeles", timezone: "America/Los_Angeles", flag: "🇺🇸", offset: -8 },
   { name: "Berlin", timezone: "Europe/Berlin", flag: "🇩🇪", offset: 1 },
   { name: "Rio de Janeiro", timezone: "America/Sao_Paulo", flag: "🇧🇷", offset: -3 },
-  { name: "Delhi", timezone: "Asia/Kolkata", flag: "🇮🇳", offset: 5.5 },
   { name: "Rome", timezone: "Europe/Rome", flag: "🇮🇹", offset: 1 },
   { name: "Cairo", timezone: "Africa/Cairo", flag: "🇪🇬", offset: 2 },
   { name: "Mexico City", timezone: "America/Mexico_City", flag: "🇲🇽", offset: -6 },
@@ -30,13 +30,18 @@ export const getCityByName = (name: string): City | undefined => {
   return CITIES.find(city => city.name === name);
 };
 
-// Calculate the current time in a specific time zone
+// // Calculate the current time in a specific time zone
+// export const getCurrentTimeForCity = (city: City): Date => {
+//   const date = new Date();
+//   // Get UTC time in ms
+//   const utcTime = date.getTime() + date.getTimezoneOffset() * 60000;
+//   // Create new date object for given city using its offset
+//   return new Date(utcTime + city.offset * 3600000);
+// };
+
+// ⏳ Get accurate current time for a city using `Intl.DateTimeFormat`
 export const getCurrentTimeForCity = (city: City): Date => {
-  const date = new Date();
-  // Get UTC time in ms
-  const utcTime = date.getTime() + date.getTimezoneOffset() * 60000;
-  // Create new date object for given city using its offset
-  return new Date(utcTime + city.offset * 3600000);
+  return new Date(new Date().toLocaleString("en-US", { timeZone: city.timezone }));
 };
 
 // Format the time to HH:MM:SS

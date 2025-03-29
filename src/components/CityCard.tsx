@@ -40,10 +40,10 @@ const CityCard: React.FC<CityCardProps> = ({ city, onRemove, isDark = false }) =
           <AnalogClock city={city} isDark={isDark} />
         </div>
         
-        <div className="flex items-center mb-2">
-          <span className="text-2xl mr-2">{city.flag}</span>
-          <h3 className="text-lg font-bold">{city.name}</h3>
-        </div>
+        <div className="flex items-center justify-center text-center mb-2" style={{paddingTop: "20px"}}>
+  <span className="text-2xl mr-2">{city.flag}</span>
+  <h3 className="text-lg font-bold">{city.name}</h3>
+</div>
         
         <div className="text-center">
           <p className="text-2xl font-mono">{formattedTime}</p>
