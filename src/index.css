@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -98,4 +99,108 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Analog Clock Styles */
+.analog-clock {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.analog-clock .hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 50% 0;
+}
+
+.analog-clock .hour-hand {
+  width: 4px;
+  height: 30%;
+  margin-left: -2px;
+  background-color: #333;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.analog-clock .minute-hand {
+  width: 3px;
+  height: 40%;
+  margin-left: -1.5px;
+  background-color: #333;
+  border-radius: 3px;
+  z-index: 3;
+}
+
+.analog-clock .second-hand {
+  width: 1px;
+  height: 45%;
+  margin-left: -0.5px;
+  background-color: #f00;
+  border-radius: 1px;
+  z-index: 4;
+}
+
+.analog-clock .center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  background-color: #f00;
+  border-radius: 50%;
+  z-index: 5;
+}
+
+.clock-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.dark-clock .clock-face {
+  background-color: #333;
+}
+
+.dark-clock .hour-hand,
+.dark-clock .minute-hand {
+  background-color: white;
+}
+
+/* Marks for hours */
+.hour-mark {
+  position: absolute;
+  width: 2px;
+  height: 12px;
+  background-color: #333;
+  transform-origin: 50% 0;
+  left: calc(50% - 1px);
+  top: 5%;
+}
+
+.dark-clock .hour-mark {
+  background-color: white;
+}
+
+.minute-mark {
+  position: absolute;
+  width: 1px;
+  height: 6px;
+  background-color: #666;
+  transform-origin: 50% 0;
+  left: calc(50% - 0.5px);
+  top: 5%;
+}
+
+.dark-clock .minute-mark {
+  background-color: #aaa;
 }
